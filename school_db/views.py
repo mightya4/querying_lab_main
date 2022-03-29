@@ -153,7 +153,7 @@ def problem_three(request):
     print(f'Instructor Name: {instructors.first_name}')
     print('Courses: ')
     for course in courses_with_key_2:
-        print(f'{course.name}')
+        print(f'{-course.name}')
 
 
     return complete(request)
@@ -201,8 +201,13 @@ SELECT `school_db_instructor`.`id`,
 
 # Get the count of students, courses, and instructors and print them in the terminal
 def problem_four(request):
-
-
+    students_count = Student.objects.all().count()
+    courses_count = Course.objects.all().count()
+    instructors_count = Instructor.objects.all().count()
+    
+    print(f'Students Count: {students_count}')
+    print(f'Courses Count: {courses_count}')
+    print(f'Instructors Count: {instructors_count}')
 
     return complete(request)
 
