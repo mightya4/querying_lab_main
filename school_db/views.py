@@ -105,7 +105,8 @@ def problem_two(request):
     instructors = Instructor.objects.all()
     instructors_hired_before_2010 = instructors.filter(hire_date__lt = '2010-01-01')
     for instructor in instructors_hired_before_2010:
-        print(f'Full name: {instructor.first_name}{instructor.last_name}\nHire Date: {instructor.hire_date}\n\n')
+        print(f'Full name: {instructor.first_name}{instructor.last_name}')
+        print(f'Hire Date: {instructor.hire_date}')
 
 
     return complete(request)
@@ -145,7 +146,14 @@ SELECT `school_db_instructor`.`id`,
 # Print the instructors name and courses that he belongs to in the terminal 
 # (Do not hard code his name in the print)
 def problem_three(request):
+    instructors = Instructor.objects.all().get(id = 2)
 
+    courses = Course.objects.all()
+    courses_with_key_2 = courses.filter(instructor_id = 2)
+    print(f'Instructor Name: {instructors.first_name}')
+    print('Courses: ')
+    for course in courses_with_key_2:
+        print(f'{course.name}')
 
 
     return complete(request)
